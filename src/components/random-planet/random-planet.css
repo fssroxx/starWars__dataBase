@@ -1,0 +1,19 @@
+.random-planet {
+    display: flex;
+    justify-content: start;
+    max-width: 700px;
+
+}
+
+.random-planet img{
+    width:15%;
+}
+
+.random-planet__name {
+/* display: block; */
+margin-left: 5px;
+} 
+
+/* .random-planet ul li{
+
+} */

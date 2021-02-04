@@ -1,0 +1,93 @@
+
+@keyframes ldio-rzhz4g30ghi {
+  0% { transform: rotate(0) }
+  100% { transform: rotate(360deg) }
+}
+.ldio-rzhz4g30ghi div { box-sizing: border-box!important }
+.ldio-rzhz4g30ghi > div {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  top: 17px;
+  left: 17px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  border-color: #0a69aa transparent #0a69aa transparent;
+  animation: ldio-rzhz4g30ghi 3.571428571428571s linear infinite;
+}
+
+.ldio-rzhz4g30ghi > div:nth-child(2), .ldio-rzhz4g30ghi > div:nth-child(4) {
+  width: 60px;
+  height: 60px;
+  top: 20px;
+  left: 20px;
+  animation: ldio-rzhz4g30ghi 3.571428571428571s linear infinite reverse;
+}
+.ldio-rzhz4g30ghi > div:nth-child(2) {
+  border-color: transparent #df1317 transparent #df1317
+}
+.ldio-rzhz4g30ghi > div:nth-child(3) { border-color: transparent }
+.ldio-rzhz4g30ghi > div:nth-child(3) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.ldio-rzhz4g30ghi > div:nth-child(3) div:before, .ldio-rzhz4g30ghi > div:nth-child(3) div:after { 
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  top: -2px;
+  left: 30px;
+  background: #0a69aa;
+  border-radius: 50%;
+  box-shadow: 0 64px 0 0 #0a69aa;
+}
+.ldio-rzhz4g30ghi > div:nth-child(3) div:after {
+  left: -2px;
+  top: 30px;
+  box-shadow: 64px 0 0 0 #0a69aa;
+}
+
+.ldio-rzhz4g30ghi > div:nth-child(4) { border-color: transparent; }
+.ldio-rzhz4g30ghi > div:nth-child(4) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.ldio-rzhz4g30ghi > div:nth-child(4) div:before, .ldio-rzhz4g30ghi > div:nth-child(4) div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  top: -2px;
+  left: 27px;
+  background: #df1317;
+  border-radius: 50%;
+  box-shadow: 0 58px 0 0 #df1317;
+}
+.ldio-rzhz4g30ghi > div:nth-child(4) div:after {
+  left: -2px;
+  top: 27px;
+  box-shadow: 58px 0 0 0 #df1317;
+}
+.loadingio-spinner-double-ring-3qe8ygqu7xn {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+.ldio-rzhz4g30ghi {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.7);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-rzhz4g30ghi div { box-sizing: content-box; }

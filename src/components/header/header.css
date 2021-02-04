@@ -1,0 +1,17 @@
+.header {
+display: flex;
+justify-content: space-between;
+}
+.header h3 a:hover {
+text-decoration: none;
+}
+.header ul {
+    margin-top: 10px;
+}
+.header ul li{
+display: inline;
+list-style: none;
+padding-left: 20px;
+
+/* text-decoration: none; */
+}
