@@ -1,22 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import Header from '../header';
-import PersonDetails from '../person-details';
-import RandomPlanet from '../random-planet';
-import ItemList from '../item-list';
 
-const App = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <RandomPlanet />  
-            <ItemList/>
-            <PersonDetails/>
-            
+import RandomPlanet from '../random-planet';
+
+import PeoplePage from '../people-page'
+
+export default class App extends Component {
+    state = {
+        show: false
+    }
+    onShow() {
+        this.setState({ show: !(this.state.show)})
+    }
+  
     
-        </div>
-          
-    )
+    render() {
+        const { show } = this.state;
+        const showNav = show ? <RandomPlanet /> : null;
+
+       
+        return (
+            <div className="app">
+                <Header/>
+                { showNav }
+                <button onClick={() => this.onShow()}>Show|Hide Random Planet</button>
+                  
+                <PeoplePage/>
+                <PeoplePage/>
+                <PeoplePage/>
+                
+        
+            </div>
+              
+        )
+    }
+    
 }
 
-export default App;

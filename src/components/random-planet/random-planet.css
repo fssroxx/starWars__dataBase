@@ -1,9 +1,9 @@
-.random-planet {
+/* .random-planet {
     display: flex;
     justify-content: start;
     max-width: 700px;
 
-}
+} */
 
 .random-planet img{
     width:15%;
@@ -13,6 +13,12 @@
 /* display: block; */
 margin-left: 5px;
 } 
+
+.block-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* .random-planet ul li{
 
