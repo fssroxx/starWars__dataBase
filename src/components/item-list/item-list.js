@@ -7,20 +7,23 @@ export default class ItemList extends Component{
     swapi = new SwapiService();
     
     state = {
-        peopleList: null
+        itemList: null
     }
 
     componentDidMount() {
-        this.swapi.getAllPeople()
-        .then((body) => {
-            this.setState ({peopleList: body})
+        const { getData } = this.props;
+        getData()
+        .then((itemList) => {
+            this.setState ({itemList})
         })
     }
 
     renderItems(array) {
-            return array.map(({id, name}) => {
+            return array.map((item) => {
+                const {id} = item;
+                const label = this.props.renderItem(item)
                 return(
-                    <li key={id} onClick={() => this.props.onItemSelected(id)}>{name}
+                    <li key={id} onClick={() => this.props.onItemSelected(id)}>{label}
                     </li>
                 )
             
@@ -29,12 +32,12 @@ export default class ItemList extends Component{
     }
 
     render() {
-        const { peopleList } = this.state;
+        const { itemList } = this.state;
 
-        if(!peopleList) {
+        if(!itemList) {
             return <Spinner/>
         }
-        const elements = this.renderItems(peopleList);
+        const elements = this.renderItems(itemList);
         return(
             <ul>
                 { elements }
