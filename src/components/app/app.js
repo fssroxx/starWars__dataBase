@@ -39,7 +39,7 @@ export default class App extends Component {
                     <ItemList onItemSelected={this.onPersonSelected}
                     getData={this.swapi.getAllPlanets}
                     renderItem={(item) => (
-                        <span>{item.name}<button>!</button></span>
+                        <span>ь {item.name}<button>!</button></span>
                     )}/>
                     <PersonDetails personId={this.state.selectedPerson}/>
                 </> 
