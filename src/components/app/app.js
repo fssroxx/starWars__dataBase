@@ -10,13 +10,17 @@ import SwapiService from '../../services';
 
 import ItemList from '../item-list';
 
-import PersonDetails from '../person-details';
+import Row from '../row';
+
+
+import ItemDetails, { Record } from '../item-details';
 
 export default class App extends Component {
     swapi = new SwapiService();
 
     state = {
-        show: false
+        show: false,
+        image: null
     }
     onShow() {
         this.setState({ show: !(this.state.show)})
@@ -24,32 +28,54 @@ export default class App extends Component {
   
     
     render() {
+        const { getPerson, getStarship, getPersonImage, getStarshipImage, getAllPeople, getAllPlanets, getAllStarships } = this.swapi;
         const { show } = this.state;
         const showNav = show ? <RandomPlanet /> : null;
+        const personDetails = (
+            <ItemDetails 
+                itemId={1} 
+                getData={getPerson}
+                getImageUrl={getPersonImage}>
+                <Record field="gender" label="Gender" />
+                <Record field="eyeColor" label="Eye Color" />
+            </ItemDetails>
 
+        );
+        const starshipDetails = (
+            <ItemDetails 
+                itemId={12}
+                getData={getStarship}
+                getImageUrl={getStarshipImage} >
+
+                <Record field="model" label="Model" />
+                <Record field="length" label="Length" />
+                <Record field="costInCredits" label="Cost" />
+
+            </ItemDetails>
+        );   
        
         return (
             <div className="app">
                 <Header/>
                 { showNav }
                 <button onClick={() => this.onShow()}>Show|Hide Random Planet</button>
-                  
-                <PeoplePage/>
-                <>
-                    <ItemList onItemSelected={this.onPersonSelected}
-                    getData={this.swapi.getAllPlanets}
-                    renderItem={(item) => (
-                        <span>ь {item.name}<button>!</button></span>
-                    )}/>
-                    <PersonDetails personId={this.state.selectedPerson}/>
-                </> 
-                <>
-                    <ItemList onItemSelected={this.onPersonSelected}
-                    getData={this.swapi.getAllStarships}
-                    renderItem={(item) => `${item.name} ---- ${item.model}`}/>
-                    <PersonDetails personId={this.state.selectedPerson}/>
-                </>
-        
+                <Row 
+                    left={personDetails} 
+                    right={starshipDetails} />
+                    
+                    <ItemList
+                        getData={getAllPeople}
+                        onItemSelected={() => {}}>
+
+                        { ({name}) => <span>{name}</span> }
+                    </ItemList>
+
+                    <ItemList
+                        getData={getAllPlanets}
+                        onItemSelected={() => {}}>
+
+                        { ({name}) => <span>{name}</span> }
+                    </ItemList>
             </div>
               
         )
