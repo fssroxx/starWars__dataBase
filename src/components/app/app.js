@@ -13,6 +13,15 @@ import ItemList from '../item-list';
 import Row from '../row';
 
 
+import{
+    PersonDetails,
+    StarshipDetails,
+    PlanetDetails,
+    PersonList,
+    StarshipList,
+    PlanetList
+} from '../sw-components/'
+
 import ItemDetails, { Record } from '../item-details';
 
 export default class App extends Component {
@@ -63,19 +72,30 @@ export default class App extends Component {
                     left={personDetails} 
                     right={starshipDetails} />
                     
-                    <ItemList
-                        getData={getAllPeople}
+                    <PersonDetails itemId={11} />
+                    <PlanetDetails itemId={5} />
+                    <StarshipDetails itemId={9} />
+
+                    <PersonList
+                        
                         onItemSelected={() => {}}>
 
                         { ({name}) => <span>{name}</span> }
-                    </ItemList>
+                    </PersonList>
 
-                    <ItemList
-                        getData={getAllPlanets}
+                    <StarshipList
+                        
                         onItemSelected={() => {}}>
 
                         { ({name}) => <span>{name}</span> }
-                    </ItemList>
+                    </StarshipList>
+
+                    <PlanetList
+                        
+                        onItemSelected={() => {}}>
+
+                        { ({name}) => <span>{name}</span> }
+                    </PlanetList>
             </div>
               
         )
