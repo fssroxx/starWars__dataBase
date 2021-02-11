@@ -4,14 +4,11 @@ import Header from '../header';
 
 import RandomPlanet from '../random-planet';
 
-import PeoplePage from '../people-page';
-
 import SwapiService from '../../services';
-
-import ItemList from '../item-list';
 
 import Row from '../row';
 
+import { SwapiServiceProvider } from '../swapi-service-context';
 
 import{
     PersonDetails,
@@ -64,25 +61,26 @@ export default class App extends Component {
         );   
        
         return (
-            <div className="app">
-                <Header/>
-                { showNav }
-                <button onClick={() => this.onShow()}>Show|Hide Random Planet</button>
-                <Row 
-                    left={personDetails} 
-                    right={starshipDetails} />
-                    
-                    <PersonDetails itemId={11} />
-                    <PlanetDetails itemId={5} />
-                    <StarshipDetails itemId={9} />
+            <SwapiServiceProvider value={this.swapi}>
+                <div className="app">
+                    <Header/>
+                    { showNav }
+                    <button onClick={() => this.onShow()}>Show|Hide Random Planet</button>
+                    <Row 
+                        left={personDetails} 
+                        right={starshipDetails} />
+                        
+                        <PersonDetails itemId={11} />
+                        <PlanetDetails itemId={5} />
+                        <StarshipDetails itemId={9} />
 
-                    <PersonList/>
+                        <PersonList/>
 
-                    <StarshipList/>
+                        <StarshipList/>
 
-                    <PlanetList/>
-            </div>
-              
+                        <PlanetList/>
+                </div>
+            </SwapiServiceProvider>
         )
     }
     
