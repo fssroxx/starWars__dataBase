@@ -8,18 +8,11 @@ import SwapiService from '../../services';
 
 import Row from '../row';
 
+import { PeoplePage, PlanetPage, StarshipPage } from '../pages';
+
+
 import { SwapiServiceProvider } from '../swapi-service-context';
 
-import{
-    PersonDetails,
-    StarshipDetails,
-    PlanetDetails,
-    PersonList,
-    StarshipList,
-    PlanetList
-} from '../sw-components/'
-
-import ItemDetails, { Record } from '../item-details';
 
 export default class App extends Component {
     swapi = new SwapiService();
@@ -34,31 +27,9 @@ export default class App extends Component {
   
     
     render() {
-        const { getPerson, getStarship, getPersonImage, getStarshipImage, getAllPeople, getAllPlanets, getAllStarships } = this.swapi;
+        
         const { show } = this.state;
-        const showNav = show ? <RandomPlanet /> : null;
-        const personDetails = (
-            <ItemDetails 
-                itemId={1} 
-                getData={getPerson}
-                getImageUrl={getPersonImage}>
-                <Record field="gender" label="Gender" />
-                <Record field="eyeColor" label="Eye Color" />
-            </ItemDetails>
-
-        );
-        const starshipDetails = (
-            <ItemDetails 
-                itemId={12}
-                getData={getStarship}
-                getImageUrl={getStarshipImage} >
-
-                <Record field="model" label="Model" />
-                <Record field="length" label="Length" />
-                <Record field="costInCredits" label="Cost" />
-
-            </ItemDetails>
-        );   
+        const showNav = show ? <RandomPlanet /> : null;  
        
         return (
             <SwapiServiceProvider value={this.swapi}>
@@ -66,19 +37,13 @@ export default class App extends Component {
                     <Header/>
                     { showNav }
                     <button onClick={() => this.onShow()}>Show|Hide Random Planet</button>
-                    <Row 
-                        left={personDetails} 
-                        right={starshipDetails} />
+                   
+                    <PeoplePage/>
+
+                    <PlanetPage/>
+
+                    <StarshipPage/>  
                         
-                        <PersonDetails itemId={11} />
-                        <PlanetDetails itemId={5} />
-                        <StarshipDetails itemId={9} />
-
-                        <PersonList/>
-
-                        <StarshipList/>
-
-                        <PlanetList/>
                 </div>
             </SwapiServiceProvider>
         )
